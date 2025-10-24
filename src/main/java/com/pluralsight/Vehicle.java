@@ -1,16 +1,16 @@
 package com.pluralsight;
 
 public class Vehicle {
- private int VIN;
- private int year;
- private String make;
- private String model;
+ private String VIN;
+ private static int year;
+ private static String make;
+ private static String model;
  private String VehicleType;
  private String Color;
  private int odometer;
  private double price;
 
-    public Vehicle(int VIN, int year, String make, String model, String vehicleType, String color, int odometer, double price) {
+    public Vehicle(String VIN, int year, String make, String model, String vehicleType, String color, int odometer, double price) {
         this.VIN = VIN;
         this.year = year;
         this.make = make;
@@ -21,7 +21,7 @@ public class Vehicle {
         this.price = price;
     }
 
-    public int getYear() {
+    public static int getYear() {
         return year;
     }
 
@@ -29,15 +29,15 @@ public class Vehicle {
         this.year = year;
     }
 
-    public int getVIN() {
+    public String getVIN() {
         return VIN;
     }
 
-    public void setVIN(int VIN) {
+    public void setVIN(String VIN) {
         this.VIN = VIN;
     }
 
-    public String getMake() {
+    public static String getMake() {
         return make;
     }
 
@@ -45,7 +45,7 @@ public class Vehicle {
         this.make = make;
     }
 
-    public String getModel() {
+    public static String getModel() {
         return model;
     }
 
@@ -83,6 +83,20 @@ public class Vehicle {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public record getOdometer() {
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "VIN='" + VIN + '\'' +
+                ", VehicleType='" + VehicleType + '\'' +
+                ", Color='" + Color + '\'' +
+                ", odometer=" + odometer +
+                ", price=" + price +
+                '}';
     }
 }
 
