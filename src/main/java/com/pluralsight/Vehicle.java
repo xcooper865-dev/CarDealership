@@ -15,8 +15,8 @@ public class Vehicle {
         this.year = year;
         this.make = make;
         this.model = model;
-        VehicleType = vehicleType;
-        Color = color;
+        this.VehicleType = vehicleType;
+        this.Color = color;
         this.odometer = odometer;
         this.price = price;
     }
@@ -99,4 +99,5 @@ public class Vehicle {
                 '}';
     }
 }
+
 

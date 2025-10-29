@@ -6,11 +6,11 @@ public class DealershipFileManager { // This class handles reading and saving th
     private String fileName;
 
     //Constructor that sets the file to read and write
-    public DealershipFileManager(String filename) {
-        this.fileName = filename;
+    public DealershipFileManager() {
+        this.fileName = fileName;
     }
 
-    public Dealership getDealership() {
+    public Dealership getDealership(String s) {
         Dealership dealership = null;
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {

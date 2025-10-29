@@ -86,11 +86,11 @@ public class Dealership {
 
     }
 
-    public ArrayList<Vehicle> getVehicleByColor(String Color) {
+    public ArrayList<Vehicle> getVehicleByColor() {
         ArrayList<Vehicle> result = new ArrayList<>();
 
         for(Vehicle vehicle : inventory){
-            if(vehicle.getColor().equalsIgnoreCase(Color)){
+            if(vehicle.getColor().equalsIgnoreCase()){
                result.add(vehicle);
             }
 
@@ -101,7 +101,7 @@ public class Dealership {
     public ArrayList<Vehicle> getVehicleByMilage(int min, int max){
         ArrayList<Vehicle> result = new ArrayList<>();
         for(Vehicle vehicle :  inventory){
-            if (vehicle.getOdometer()>= min && vehicle.getOdometer()<= max){
+            if (vehicle.getOdometer()>= min&& vehicle.getOdometer()<= max){
                 result.add(vehicle);
 
             }
@@ -109,10 +109,12 @@ public class Dealership {
         return result;
 
     }
-    public ArrayList<Vehicle> getVehicleByType(String vehicleType){
+    public ArrayList<Vehicle> getVehicleByType(){
         ArrayList<Vehicle> result = new ArrayList<>();
         for(Vehicle vehicle : inventory){
-            if (vehicle.getVehicleType().equalsIgnoreCase(vehicleType)){}
+            if (vehicle.getVehicleType().equalsIgnoreCase(String.valueOf(vehicle))){
+                //come back to this
+            }
             result.add(vehicle);
 
         }
@@ -141,7 +143,7 @@ public class Dealership {
                 ", address='" + address + '\'' +
                 ", Phone='" + Phone + '\'' +
                 '}';
-    }
+         }
 
 
     }
