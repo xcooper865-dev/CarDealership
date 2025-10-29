@@ -1,27 +1,24 @@
 package com.pluralsight;
 
-public class Vehicle {
- private String VIN;
- private static int year;
- private static String make;
- private static String model;
- private String VehicleType;
- private String Color;
- private int odometer;
- private double price;
+public class Vehicle {  //hold vehicle info
+    private String vin;
+    private int year;
+    private String make;
+    private String model;
+    private String vehicleType;
+    private String color;
+    private int odometer;
+    private double price;
 
-    public Vehicle(String VIN, int year, String make, String model, String vehicleType, String color, int odometer, double price) {
-        this.VIN = VIN;
-        this.year = year;
-        this.make = make;
-        this.model = model;
-        this.VehicleType = vehicleType;
-        this.Color = color;
-        this.odometer = odometer;
-        this.price = price;
+    public String getVin() {
+        return vin;
     }
 
-    public static int getYear() {
+    public void setVin(String vin) {
+        this.vin = vin;
+    }
+
+    public int getYear() {
         return year;
     }
 
@@ -29,15 +26,7 @@ public class Vehicle {
         this.year = year;
     }
 
-    public String getVIN() {
-        return VIN;
-    }
-
-    public void setVIN(String VIN) {
-        this.VIN = VIN;
-    }
-
-    public static String getMake() {
+    public String getMake() {
         return make;
     }
 
@@ -45,7 +34,7 @@ public class Vehicle {
         this.make = make;
     }
 
-    public static String getModel() {
+    public String getModel() {
         return model;
     }
 
@@ -54,19 +43,19 @@ public class Vehicle {
     }
 
     public String getVehicleType() {
-        return VehicleType;
+        return vehicleType;
     }
 
     public void setVehicleType(String vehicleType) {
-        VehicleType = vehicleType;
+        this.vehicleType = vehicleType;
     }
 
     public String getColor() {
-        return Color;
+        return color;
     }
 
     public void setColor(String color) {
-        Color = color;
+        this.color = color;
     }
 
     public int getOdometer() {
@@ -85,19 +74,29 @@ public class Vehicle {
         this.price = price;
     }
 
-    public record getOdometer() {
+    public Vehicle(String vin, int year, String make, String model,
+                   String vehicleType, String color, int odometer, double price) {
+        this.vin = vin;
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+        this.vehicleType = vehicleType;
+        this.color = color;
+        this.odometer = odometer;
     }
 
     @Override
     public String toString() {
         return "Vehicle{" +
-                "VIN='" + VIN + '\'' +
-                ", VehicleType='" + VehicleType + '\'' +
-                ", Color='" + Color + '\'' +
+                "vin='" + vin + '\'' +
+                ", year=" + year +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", vehicleType='" + vehicleType + '\'' +
+                ", color='" + color + '\'' +
                 ", odometer=" + odometer +
                 ", price=" + price +
                 '}';
     }
 }
-
-

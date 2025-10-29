@@ -1,16 +1,15 @@
 package com.pluralsight;
-
 import java.io.*;
 
 public class DealershipFileManager { // This class handles reading and saving the dealership data from a file.
     private String fileName;
 
     //Constructor that sets the file to read and write
-    public DealershipFileManager() {
-        this.fileName = fileName;
+    public DealershipFileManager(String filename) {
+        this.fileName = filename;
     }
 
-    public Dealership getDealership(String s) {
+    public Dealership getDealership() {
         Dealership dealership = null;
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -24,12 +23,12 @@ public class DealershipFileManager { // This class handles reading and saving th
                     String phone = dealerParts[2];
                     dealership = new Dealership(name, address, phone);
                 } else {
-                    System.out.println("Invalid dealership name in file: " + line);
-                    dealership = new Dealership("Ford", " 1234 main street", "803-256-5531");
+                    System.out.println("Invalid dealership name : " + line);
+                    dealership = new Dealership("Ford", " 1234 main street", "000-000-5531");
                 }
             } else {
                 System.out.println("File is Empty");
-                dealership = new Dealership("Ford", " 1234 main street", "000-000-0000");
+                dealership = new Dealership("Ford", " 1234 main street", "000-000-1234");
 
             }
             //Read remaining lines from vehicle inventory
@@ -74,7 +73,7 @@ public class DealershipFileManager { // This class handles reading and saving th
 
             // Write all vehicles
             for (Vehicle vehicle : dealership.getAllVehicles()) {
-                bw.write(vehicle.getVIN() + "|" +
+                bw.write(vehicle.getVin() + "|" +
                         vehicle.getYear() + "|" +
                         vehicle.getMake() + "|" +
                         vehicle.getModel() + "|" +
