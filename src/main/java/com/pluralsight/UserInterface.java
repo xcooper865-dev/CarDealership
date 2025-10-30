@@ -18,54 +18,45 @@ public class UserInterface { // dealership object will store all cars and dealer
         this.scanner = new Scanner(System.in);
     }
 
-    public void display() {
-        if (dealership == null) {
-            init();
-        }
+        public void display() {
+        init();
+
+
         boolean running = true;
 
-        while (running) {
+        while (running){
             displayMenu();
-            String choice = ConsoleHelper.promptForString("Enter your choice").trim();
-            switch (choice) {
-                case "1":
-                    processGetByPriceRequest();
-                    break;
-                case "2":
-                    processGetByMakeModelRequest();
-                    break;
-                case "3":
-                    processGetByYearRequest();
-                    break;
-                case "4":
-                    processGetByColorRequest();
-                    break;
-                case "5":
-                    processGetByMileageRequest();
-                    break;
-                case "6":
-                    processGetByVehicleTypeRequest();
-                    break;
-                case "7":
-                    processAllVehiclesRequest();
-                    break;
-                case "8":
-                    processAddVehicleRequest();
-                    break;
-                case "9":
-                    processRemoveVehicleRequest();
-                    break;
-                case "99":
-                    running = false;
-                    System.out.println("Exiting the program. Goodbye!");
-                    break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-                    break;
+            int choice = scanner.nextInt();
+
+            scanner.nextLine();
+
+            switch(choice){
+                case 1-> processGetByPriceRequest();
+                case 2-> processGetByMakeModelRequest();
+                case 3 -> processGetByYearRequest();
+                case 4 -> processGetByColorRequest();
+                case 5 -> processGetByMileageRequest();
+                case 6 -> processGetByVehicleTypeRequest();
+                case 7 -> processAllVehiclesRequest();
+                case 8 -> processAddVehicleRequest();
+                case 9 -> processRemoveVehicleRequest();
+                case 99 -> {
+                    System.out.println("\nThank you for visiting "+ dealership.getName()+"!");
+                    running= false;
+                }
+                default -> System.out.println("invalid choice ");
+
+
+
+
 
             }
-        }
+}
+        scanner.close();
+
+
     }
+
     private void processGetByPriceRequest() {  // Find vehicles by price range
         double min = ConsoleHelper.promptForDouble("Enter minimum price");
         double max = ConsoleHelper.promptForDouble("Enter maximum price");
@@ -85,20 +76,27 @@ public class UserInterface { // dealership object will store all cars and dealer
     }
 
     private void displayMenu() {
-        System.out.println("\n===== Dealership Menu =====");
-        System.out.println("1 : Find vehicles within a price range");
-        System.out.println("2 : Find vehicles by make/model");
-        System.out.println("3 : Find vehicles by year range");
-        System.out.println("4 : Find vehicles by color");
-        System.out.println("5 : Find vehicles by mileage range");
-        System.out.println("6 : Find vehicles by type(car, truck, SUV, van)");
-        System.out.println("7 : List ALL vehicles");
-        System.out.println("8 : Add a vehicle");
-        System.out.println("9 : Remove a vehicle");
-        System.out.println("99 : Quit");
+        System.out.println("\n--------------------------------------------------------------------------");
+        System.out.println("                              DEALERSHIP MENU");
+        System.out.println("----------------------------------------------------------------------------");
+        System.out.println("      1:    Find Vehicles By Price");
+        System.out.println("      2:    Find Vehicles By Make/Model");
+        System.out.println("      3:    Find Vehicles By Year");
+        System.out.println("      4:    Find Vehicles By Color");
+        System.out.println("      5:    Find Vehicle By Mileage");
+        System.out.println("      6:    Find Vehicles By Type");
+        System.out.println("      7:    List All Vehicles ");
+        System.out.println("      8:    Add a Vehicle");
+        System.out.println("      9:    Remove A Vehicle ");
+        System.out.println("     99:    Quit");
+        System.out.println("------------------------------------------------------------------------------");
+        System.out.println("   Enter Your Choice");
+
+
     }
 
-    private void displayVehicles(ArrayList<Vehicle> vehicles) {
+
+        private void displayVehicles(ArrayList<Vehicle> vehicles) {
         if (vehicles.isEmpty()) {
             System.out.println("No vehicles found.");
             return;
