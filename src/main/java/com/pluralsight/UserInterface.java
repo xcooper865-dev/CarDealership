@@ -40,6 +40,7 @@ public class UserInterface { // dealership object will store all cars and dealer
                 case 7 -> processAllVehiclesRequest();
                 case 8 -> processAddVehicleRequest();
                 case 9 -> processRemoveVehicleRequest();
+                case 10 -> processGetUserInput();
                 case 99 -> {
                     System.out.println("\nThank you for visiting "+ dealership.getName()+"!");
                     running= false;
@@ -88,6 +89,7 @@ public class UserInterface { // dealership object will store all cars and dealer
         System.out.println("      7:    List All Vehicles ");
         System.out.println("      8:    Add a Vehicle");
         System.out.println("      9:    Remove A Vehicle ");
+        System.out.println("     10:     User Input");
         System.out.println("     99:    Quit");
         System.out.println("------------------------------------------------------------------------------");
         System.out.println("   Enter Your Choice");
@@ -140,6 +142,12 @@ public class UserInterface { // dealership object will store all cars and dealer
         displayVehicles(dealership.getVehiclesByMileage(min, max));
     }
 
+    private void processGetUserInput(){
+
+    }
+
+
+
     private void processGetByVehicleTypeRequest() { // Finds vehicles by type car,truck,Suv, van
         String type = ConsoleHelper.promptForString("Enter vehicle type (car/truck/SUV/van)");
         displayVehicles(dealership.getVehiclesByType(type));
@@ -184,5 +192,6 @@ public class UserInterface { // dealership object will store all cars and dealer
         } else {
             System.out.println("Vehicle with VIN " + vin + " vin not found.");  // Remove a vehicle using its VIN number
         }
+
     }
 }
